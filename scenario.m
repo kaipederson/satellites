@@ -1,3 +1,4 @@
+%usin git now
 startTime = datetime(2021,7,15,1,57,39);
 stopTime = startTime + days(1);
 sampleTime = 60;
