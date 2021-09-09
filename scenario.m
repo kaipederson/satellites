@@ -10,9 +10,10 @@ gs_la_crosse = groundStation(sc, 43.81810593877638, -91.21248032918966, 'Name', 
 gs_madison_erb = groundStation(sc, 43.07255162648905, -89.41145475527613, 'Name', 'ERB')
 time = datetime(2021,7,15,11,18,23)
 pos_AO_73 = states(AO_73(1),time,"CoordinateFrame","geographic")
+tiny_tim = satcom.internal.linkbudgetApp.computeElevation(43.81810593877638, -91.21248032918966, 0, pos_AO_73(1), pos_AO_73(2), pos_AO_73(3))
 time = datetime(2021,7,15,17,24,42)
 pos_CAS_6 = states(CAS_6(1),time,"CoordinateFrame","geographic")
 time = datetime(2021,7,15,17,19,28)
 pos_CAS_4 = states(CAS_4(1),time,"CoordinateFrame","geographic")
 
-play(sc)
+%play(sc)
