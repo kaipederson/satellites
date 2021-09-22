@@ -1,9 +1,8 @@
-%usin git now
-startTime = datetime(2021,9,15,0,0,0);
+startTime = datetime(2021,9,21,0,0,0);
 stopTime = startTime + days(1);
 sampleTime = 1;
 sc = satelliteScenario(startTime, stopTime, sampleTime);
-sat = satellite(sc, "AO73(39444)_TLE")
+sat = satellite(sc, "CAS6(44881)_TLE")
 gs_la_crosse = groundStation(sc, 43.81810593877638, -91.21248032918966, 'Name', 'La Crosse')
 gs_madison_erb = groundStation(sc, 43.07255162648905, -89.41145475527613, 'Name', 'ERB')
 
@@ -13,6 +12,7 @@ gs_madison_erb = groundStation(sc, 43.07255162648905, -89.41145475527613, 'Name'
 % end
 
 tx_opps = [];
+prev_angle = 0;
 
 for hr = 0:23
     for min = 0:59 
@@ -38,6 +38,6 @@ for hr = 0:23
     end
 end
 
-xlswrite('Fresh_AO_73.xlsx',tx_opps)
+xlswrite('Current_CAS6(44881).xlsx',tx_opps)
 
 %play(sc)
