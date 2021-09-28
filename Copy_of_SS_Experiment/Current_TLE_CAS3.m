@@ -2,7 +2,7 @@ startTime = datetime(2021,9,21,0,0,0);
 stopTime = startTime + days(1);
 sampleTime = 1;
 sc = satelliteScenario(startTime, stopTime, sampleTime);
-sat = satellite(sc, "CAS6(44881)_TLE")
+sat = satellite(sc, "CAS3(40903)_TLE")
 gs_la_crosse = groundStation(sc, 43.81810593877638, -91.21248032918966, 'Name', 'La Crosse')
 gs_madison_erb = groundStation(sc, 43.07255162648905, -89.41145475527613, 'Name', 'ERB')
 
@@ -27,8 +27,6 @@ for hr = 0:23
                     tx_opp = ['START'; string(time); string(pos);angle];
                     tx_opps = [tx_opps, tx_opp];
                 end
-%                 tx_opp = [angle; string(time)];
-%                 tx_opps = [tx_opps, tx_opp];
             elseif prev_angle > 25
                 tx_opp = ['END'; string(time); string(pos);angle];
                 tx_opps = [tx_opps, tx_opp];
@@ -38,6 +36,6 @@ for hr = 0:23
     end
 end
 
-xlswrite('Current_CAS6(44881).xlsx',tx_opps)
+xlswrite('Current_CAS3(40903)_TLE.xlsx',tx_opps)
 
 %play(sc)

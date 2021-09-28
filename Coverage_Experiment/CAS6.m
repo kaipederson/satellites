@@ -27,8 +27,6 @@ for hr = 0:23
                     tx_opp = ['START'; string(time); string(pos);angle];
                     tx_opps = [tx_opps, tx_opp];
                 end
-%                 tx_opp = [angle; string(time)];
-%                 tx_opps = [tx_opps, tx_opp];
             elseif prev_angle > 25
                 tx_opp = ['END'; string(time); string(pos);angle];
                 tx_opps = [tx_opps, tx_opp];
@@ -38,6 +36,6 @@ for hr = 0:23
     end
 end
 
-xlswrite('Current_CAS6(44881).xlsx',tx_opps)
+xlswrite('Output_Coverage_EXP/CAS6.xlsx',tx_opps)
 
 %play(sc)

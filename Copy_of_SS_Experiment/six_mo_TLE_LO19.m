@@ -2,7 +2,7 @@ startTime = datetime(2021,9,21,0,0,0);
 stopTime = startTime + days(1);
 sampleTime = 1;
 sc = satelliteScenario(startTime, stopTime, sampleTime);
-sat = satellite(sc, "CAS6(44881)_TLE")
+sat = satellite(sc, "LO19(20442)_TLE_6m_old")
 gs_la_crosse = groundStation(sc, 43.81810593877638, -91.21248032918966, 'Name', 'La Crosse')
 gs_madison_erb = groundStation(sc, 43.07255162648905, -89.41145475527613, 'Name', 'ERB')
 
@@ -38,6 +38,6 @@ for hr = 0:23
     end
 end
 
-xlswrite('Current_CAS6(44881).xlsx',tx_opps)
+xlswrite('6mo_LO19(20442)_TLE.xlsx',tx_opps)
 
 %play(sc)
