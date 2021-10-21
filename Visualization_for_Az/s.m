@@ -1,0 +1,1 @@
+openExample('aero_satcom/SatelliteConstellationAccessToAGroundStationExample')
