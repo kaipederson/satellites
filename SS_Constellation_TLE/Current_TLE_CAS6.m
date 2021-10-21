@@ -24,13 +24,15 @@ for hr = 0:23
             if angle >= 25
                 if angle > prev_angle && prev_angle < 25
                     prev_angle = angle;
-                    tx_opp = ['START'; string(time); string(pos);angle];
+                    az = aer(gs_madison_erb, sat, time);
+                    tx_opp = ['START'; string(time); string(pos);angle;az];
                     tx_opps = [tx_opps, tx_opp];
                 end
 %                 tx_opp = [angle; string(time)];
 %                 tx_opps = [tx_opps, tx_opp];
             elseif prev_angle > 25
-                tx_opp = ['END'; string(time); string(pos);angle];
+                az = aer(gs_madison_erb, sat, time);
+                tx_opp = ['END'; string(time); string(pos);angle;az];
                 tx_opps = [tx_opps, tx_opp];
             end 
             prev_angle = angle;
