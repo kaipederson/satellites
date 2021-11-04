@@ -8,7 +8,7 @@ leadTime = 3600;                                          % seconds
 trailTime = leadTime;
 gt = groundTrack(sat,"LeadTime",leadTime,"TrailTime",trailTime)
 
-%gs = groundStation(sc, 43.07255162648905, -89.41145475527613)
+gs = groundStation(sc, 43.07255162648905, -89.41145475527613)
 
 % old_data = xlsread('AO_73.xlsx');
 % if ~isempty(old_data)
@@ -40,13 +40,13 @@ ac(1)
 
 
 
-play(sc);
+%play(sc);
 tx_opps = [];
 prev_angle = 0;
 
-for hr = 10
-    for min = 31:43
-        for sec = 0:15:45
+for hr = 0:1:24
+    for min = 0:1:60
+        for sec = 0:5:60
             time = datetime(2021,9,15,hr,min,sec);
             pos = states(sat(1),time,"CoordinateFrame","geographic");
 
