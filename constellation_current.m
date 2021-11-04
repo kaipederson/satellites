@@ -12,20 +12,12 @@ trailTime = leadTime;
 %gs = groundStation(sc, 43.07255162648905, -89.41145475527613)
 
 for idx = 1:numel(sat)
-    name = sat(idx).Name + " Camera";
+    name = sat(idx).Name;
     conicalSensor(sat(idx),"Name",name,"MaxViewAngle",130);
 end
 
 % Retrieve the cameras
-cam = [sat.ConicalSensors]
-fov = fieldOfView(cam([cam.Name] == "7530 Camera"));
-fov = fieldOfView(cam([cam.Name] == "40054 Camera"));
-fov = fieldOfView(cam([cam.Name] == "20442 Camera"));
-fov = fieldOfView(cam([cam.Name] == "43937 Camera"));
-fov = fieldOfView(cam([cam.Name] == "42017 Camera"));
-fov = fieldOfView(cam([cam.Name] == "44881 Camera"));
-fov = fieldOfView(cam([cam.Name] == "40903 Camera"));
-fov = fieldOfView(cam([cam.Name] == "39444 Camera"));
+cam = [sat.ConicalSensors];
 
 name = "Madison";
 minElevationAngle = 25; % degrees
@@ -73,4 +65,3 @@ prev_angle = 0;
 % end
 
 hide([sat.Orbit])
-play(sc)
