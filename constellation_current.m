@@ -40,28 +40,30 @@ name = sat(1).Name
 tx_opps = [];
 prev_angle = 0;
 
-% for hr = 0:23
-%     for min = 0:59 
-%         for sec = 0:5:59
-%             time = datetime(2021,9,14,hr,min,sec);
-%             pos = states(sat(1),time,"CoordinateFrame","geographic");
-% 
-%             angle = satcom.internal.linkbudgetApp.computeElevation(43.07255162648905, -89.41145475527613, 0, pos(1), pos(2), pos(3));
-%             if angle >= 25
-%                 if angle > prev_angle && prev_angle < 25
-%                     prev_angle = angle;
-%                     tx_opp = ['START'; string(time); string(pos);angle];
-%                     tx_opps = [tx_opps, tx_opp];
-%                 end
-% %                 tx_opp = [angle; string(time)];
-% %                 tx_opps = [tx_opps, tx_opp];
-%             elseif prev_angle > 25
-%                 tx_opp = ['END'; string(time); string(pos);angle];
-%                 tx_opps = [tx_opps, tx_opp];
-%             end 
-%             prev_angle = angle;
-%         end
-%     end
-% end
+for idx = 1:numel(ac)
+    [s,time] = accessStatus(ac(idx));
+    
+    if idx == 1
+        % Initialize system-wide access status vector in the first iteration
+        systemWideAccessStatus = s;
+    else
+        % Update system-wide access status vector by performing a logical OR
+        % with access status for the current camera-site access
+        % analysis
+        systemWideAccessStatus = or(systemWideAccessStatus,s);
+    end
+end
+
+% plot(time,systemWideAccessStatus,"LineWidth",2);
+% grid on;
+% xlabel("Time");
+% ylabel("System-Wide Access Status");
+
+n = nnz(systemWideAccessStatus)
+systemWideAccessDuration = n*sc.SampleTime % seconds
+scenarioDuration = seconds(sc.StopTime - sc.StartTime)
+systemWideAccessPercentage = (systemWideAccessDuration/scenarioDuration)*100
+
+
 
 hide([sat.Orbit])
