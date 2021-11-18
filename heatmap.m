@@ -1,11 +1,11 @@
 lat = -89.41145475527613;
 long = 43.07255162648905;
 location = [long, lat];
-neighbors = [long, lat, long, lat + 1.5, long, lat - 1.5, long - 1.5, lat, long + 1.5, lat];
+neighbors = [long, lat, long, lat + 1.5, long, lat - 1.5, long - 1.5, lat, long + 1.5, lat, powerlong + 1.5, lat + 1.5, long  + 1.5, lat - 1.5, long - 1.5, lat  - 1.5, long + 1.5, lat - 1.5];
 location = ["north", "south", "west", "east"];
-for points = 1:2:10
+for points = 1:2:20
 
-    startTime = datetime(2021,9,17,0,0,0);
+    startTime = datetime(2021,9,14,0,0,0);
     stopTime = startTime + days(1);
     sampleTime = 1;
     sc = satelliteScenario(startTime, stopTime, sampleTime);
