@@ -19,19 +19,19 @@ end
 % Retrieve the cameras
 cam = [sat.ConicalSensors]
 %this segment shows the fov of the cameras, but is a little misleading
-% fov = fieldOfView(cam([cam.Name] == "7530 Camera"));
-% fov = fieldOfView(cam([cam.Name] == "40054 Camera"));
-% fov = fieldOfView(cam([cam.Name] == "20442 Camera"));
-% fov = fieldOfView(cam([cam.Name] == "43937 Camera"));
-% fov = fieldOfView(cam([cam.Name] == "42017 Camera"));
-% fov = fieldOfView(cam([cam.Name] == "44881 Camera"));
-% fov = fieldOfView(cam([cam.Name] == "40903 Camera"));
-% fov = fieldOfView(cam([cam.Name] == "39444 Camera"));
+fov = fieldOfView(cam([cam.Name] == "7530 Camera"));
+fov = fieldOfView(cam([cam.Name] == "40054 Camera"));
+fov = fieldOfView(cam([cam.Name] == "20442 Camera"));
+fov = fieldOfView(cam([cam.Name] == "43937 Camera"));
+fov = fieldOfView(cam([cam.Name] == "42017 Camera"));
+fov = fieldOfView(cam([cam.Name] == "44881 Camera"));
+fov = fieldOfView(cam([cam.Name] == "40903 Camera"));
+fov = fieldOfView(cam([cam.Name] == "39444 Camera"));
 
 name = "Madison";
 minElevationAngle = 25; % degrees
 geoSite = groundStation(sc, 43.07255162648905, -89.41145475527613, "Name", "Madison", "MinElevationAngle",minElevationAngle);
-geoSite2 = groundStation(sc, 47.6062, -122.3321, "Name", "Seattle", "MinElevationAngle",minElevationAngle);
+geoSite2 = groundStation(sc, 44.0805, -103.2310, "Name", "Seattle", "MinElevationAngle",minElevationAngle);
 
 for idx = 1:numel(cam)
     access(cam(idx),geoSite);
