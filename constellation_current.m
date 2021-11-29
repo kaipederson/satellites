@@ -33,12 +33,6 @@ ac = [cam.Accesses];
 % Properties of access analysis objects
 ac(1)
 accessIntervals(ac)
-time = datetime(2021,9,14,02,50,04);
-pos = states(sat(1),time,"CoordinateFrame","geographic");
-angle = satcom.internal.linkbudgetApp.computeElevation(43.07255162648905, -89.41145475527613, 0, pos(1), pos(2), pos(3))
-name = sat(1).Name
-tx_opps = [];
-prev_angle = 0;
 
 for idx = 1:numel(ac)
     [s,time] = accessStatus(ac(idx));
@@ -63,7 +57,6 @@ n = nnz(systemWideAccessStatus)
 systemWideAccessDuration = n*sc.SampleTime % seconds
 scenarioDuration = seconds(sc.StopTime - sc.StartTime)
 systemWideAccessPercentage = (systemWideAccessDuration/scenarioDuration)*100
-
 
 
 hide([sat.Orbit])

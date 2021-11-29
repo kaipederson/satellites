@@ -72,4 +72,3 @@ for direction = 1:2:8
         results(direction, points) = systemWideAccessDuration/60;
 
     end
-end
