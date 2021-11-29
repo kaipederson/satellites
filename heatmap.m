@@ -58,12 +58,6 @@ for direction = 1:2:8
                 systemWideAccessStatus = or(systemWideAccessStatus,s);
             end
         end
-        % madison, seattle, same, colorado, same, 10x10 grid, above 30 minutes,
-        % 15 minutes
-        % plot(time,systemWideAccessStatus,"LineWidth",2);
-        % grid on;
-        % xlabel("Time");
-        % ylabel("System-Wide Access Status");
     
         n = nnz(systemWideAccessStatus);
         systemWideAccessDuration = n*sc.SampleTime; % seconds
