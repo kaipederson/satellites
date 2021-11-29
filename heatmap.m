@@ -43,8 +43,6 @@ for direction = 1:2:8
         
         for idx = 1:numel(sat)
             ac(idx) = access(geoSite2, sat(idx), geoSite);
-    %         sat(idx).Name
-    %         accessIntervals(ac)
         end
         %accessIntervals(ac)
         for idx = 1:numel(ac)
