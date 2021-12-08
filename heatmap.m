@@ -34,40 +34,40 @@ end
 neighbors = [n_neighbors; s_neighbors; w_neighbors; e_neighbors; nw_neighbors; sw_neighbors; ne_neighbors; se_neighbors];
 
 
-l = [n_neighbors, s_neighbors, w_neighbors, e_neighbors, nw_neighbors, sw_neighbors, ne_neighbors, se_neighbors];
-l = l';
-times = ones(128, 1);
-colors = strings(128,1);
-
-index = 1;
-for i = 1:2:16
-    for j = 1:16
-        times(index) = results(i, j);
-        if times(index) >= 60
-            colors(index) = 'ro';
-        elseif times(index) >= 45
-            colors(index) = 'yo';
-        elseif times(index) >= 30
-            colors(index) = 'go';
-        elseif times(index) >= 15
-            colors(index) = 'co';
-        else
-            colors(index) = 'o';
-        end
-        index = index + 1;
-    end
-end 
-
-locations = table([l(:,1)],[l(:,2)],times, colors);
-locations.Properties.VariableNames = {'Lat' 'Long' 'TX Duration' 'Color'}
-
-geobasemap grayterrain;
-MapCenterMode = 'auto'
-for points = 1:128
-    hold on
-    geoplot(locations.Lat(points), locations.Long(points),locations.Color(points))
-    hold off
-end
+% l = [n_neighbors, s_neighbors, w_neighbors, e_neighbors, nw_neighbors, sw_neighbors, ne_neighbors, se_neighbors];
+% l = l';
+% times = ones(128, 1);
+% colors = strings(128,1);
+% 
+% index = 1;
+% for i = 1:2:16
+%     for j = 1:16
+%         times(index) = results(i, j);
+%         if times(index) >= 60
+%             colors(index) = 'ro';
+%         elseif times(index) >= 45
+%             colors(index) = 'yo';
+%         elseif times(index) >= 30
+%             colors(index) = 'go';
+%         elseif times(index) >= 15
+%             colors(index) = 'co';
+%         else
+%             colors(index) = 'o';
+%         end
+%         index = index + 1;
+%     end
+% end 
+% 
+% locations = table([l(:,1)],[l(:,2)],times, colors);
+% locations.Properties.VariableNames = {'Lat' 'Long' 'TX Duration' 'Color'}
+% 
+% geobasemap grayterrain;
+% MapCenterMode = 'auto'
+% for points = 1:128
+%     hold on
+%     geoplot(locations.Lat(points), locations.Long(points),locations.Color(points))
+%     hold off
+% end
 
 
 results = ones(16,16);
@@ -149,7 +149,6 @@ locations = table([l(:,1)],[l(:,2)],times, colors);
 locations.Properties.VariableNames = {'Lat' 'Long' 'TX Duration' 'Color'}
 
 geobasemap grayterrain;
-MapCenter;
 geolimits([20 60],[-155 -60])
 for points = 1:128
     hold on
